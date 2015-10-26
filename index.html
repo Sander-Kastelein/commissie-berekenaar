@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+	<meta charset="UTF-8">
+	<title>Berekenaar</title>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
+</head>
+<body>
+
+	<div class="container">
+
+		<div class="page-header">
+			<h1>Presio commissie berekenaar</h1>
+			<p class="lead">Een "handige" tool geschreven om uit te rekenen hoeveel geld een affiliate krijgt</p>
+			<div class="row">
+				<div class="col-xs-6">
+					<button class="btn btn-primary" id="export">
+						Download instellingen
+					</button>
+				</div>
+				<div class="col-xs-6">
+					Import instellingen:
+					<input type="file" id="uploader">
+				</div>
+			</div>
+		</div>
+
+		<h3>Instellingen</h3>
+		<div class="row">
+			<div class="col-xs-4"><strong>Vanaf</strong></div>
+			<div class="col-xs-4"><strong>Tot</strong></div>
+			<div class="col-xs-4"><strong>Commissie</strong></div>
+		</div>
+
+		<div id="comissions">
+
+		</div>
+
+		<div style="padding-top: 25px;" class="row">
+			<button id="add-comission-row" class="btn btn-default col-xs-3 col-xs-offset-4"><span style="padding-top:1px;" class="glyphicon glyphicon-plus pull-right"></span>Voeg comissie staffel toe</button>
+		</div>
+
+
+
+
+		<h3>Voorbeeld</h3>
+		<p>Voer hier een getal in om te kijken hoeveel de comissie wordt</p>
+		<div class="row">
+			<div class="col-xs-3">
+				<h4>Project waarde	</h4>
+				<div class="input-group">
+					<span class="input-group-addon">€</span>
+					<input min="0" step="100" id="example-input" value="0" type="number" class="form-control">
+				</div>
+			</div>
+			<div class="col-xs-3 col-xs-offset-1">
+				<h4>Comissie</h4>
+				<div class="input-group">
+					<span class="input-group-addon">€</span>
+					<input type="text" id="example" disabled class="form-control">
+				</div>
+			</div>
+		</div>
+
+		<h3>Standaard tabel</h3>
+		<p>Voor een handig overzicht</p>
+		<div class="row">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Project prijs</th>
+						<th>Comissie</th>
+					</tr>
+				</thead>
+				<tbody id="examples">
+					<tr>
+						<td>&euro;<span class="price">100</span></td>
+						<td>&euro;<span class="result"></span></td>
+					</tr>
+
+					<tr>
+						<td>&euro;<span class="price">250</span></td>
+						<td>&euro;<span class="result"></span></td>
+					</tr>
+
+					<tr>
+						<td>&euro;<span class="price">500</span></td>
+						<td>&euro;<span class="result"></span></td>
+					</tr>
+					
+					<tr>
+						<td>&euro;<span class="price">750</span></td>
+						<td>&euro;<span class="result"></span></td>
+					</tr>
+
+					<tr>
+						<td>&euro;<span class="price">1000</span></td>
+						<td>&euro;<span class="result"></span></td>
+					</tr>
+					
+					<tr>
+						<td>&euro;<span class="price">1500</span></td>
+						<td>&euro;<span class="result"></span></td>
+					</tr>
+
+					<tr>
+						<td>&euro;<span class="price">2000</span></td>
+						<td>&euro;<span class="result"></span></td>
+					</tr>
+
+					<tr>
+						<td>&euro;<span class="price">2500</span></td>
+						<td>&euro;<span class="result"></span></td>
+					</tr>
+
+					<tr>
+						<td>&euro;<span class="price">3500</span></td>
+						<td>&euro;<span class="result"></span></td>
+					</tr>
+
+					<tr>
+						<td>&euro;<span class="price">5000</span></td>
+						<td>&euro;<span class="result"></span></td>
+					</tr>
+					
+					<tr>
+						<td>&euro;<span class="price">7500</span></td>
+						<td>&euro;<span class="result"></span></td>
+					</tr>
+
+					<tr>
+						<td>&euro;<span class="price">10000</span></td>
+						<td>&euro;<span class="result"></span></td>
+					</tr>
+
+					<tr>
+						<td>&euro;<span class="price">25000</span></td>
+						<td>&euro;<span class="result"></span></td>
+					</tr>
+
+
+					<tr>
+						<td>&euro;<span class="price">50000</span></td>
+						<td>&euro;<span class="result"></span></td>
+					</tr>
+
+
+					<tr>
+						<td>&euro;<span class="price">100000</span></td>
+						<td>&euro;<span class="result"></span></td>
+					</tr>
+
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+
+
+
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+	<script src="custom.js"></script>
+
+</body>
+</html>
